@@ -1,0 +1,29 @@
+
+server:
+  port: 8090
+spring.cloud.stream:
+  function:
+    definition : pageEventConsumer;pageEventSupplier;pageStreamConsumer;kStreamFunction2
+  bindings:
+    pageEventConsumer-in-0:
+      destination: R224
+      group: G1
+    pageEventSupplier-out-0:
+      destination: R333
+    kStreamFunction2-in-0:
+      destination: R333
+      group: G44
+    kStreamFunction2-out-0:
+      destination: R66
+spring:
+  kafka:
+    streams:
+      application-id: app2
+    consumer:
+      enable-auto-commit: true
+      auto-offset-reset: earliest
+
+
+
+
+
